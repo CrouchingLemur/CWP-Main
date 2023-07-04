@@ -50,7 +50,7 @@ indian_constitution = {
 	}
 
 	# the number of days before this journal entry forcibly transitions, can be used to transition silently or into another event, framed either as success, failure, or neutral; if left blank or set to zero, will not time out
-	timeout = 540
+	timeout = 186
 
 	# effect which is executed when journal entry is timed out
 	on_timeout = {

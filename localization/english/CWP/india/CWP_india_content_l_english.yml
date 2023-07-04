@@ -18,9 +18,9 @@
   indian_partition.2.a: "The newly formed India needs us"
   indian_partition.2.b: "We must peacefully transition to an independent state"
   indian_partition.2.c: "We cannot control the Indian Subcontinent any longer"
-  indian_partition.2.a.tt: "INDIAN PARTITION 1 TOOLTIP"
-  indian_partition.2.b.tt: "INDIAN PARTITION 1 TOOLTIP"
-  indian_partition.2.c.tt: "INDIAN PARTITION 1 TOOLTIP"
+  indian_partition.2.a.tt: "Keep India under our political foot"
+  indian_partition.2.b.tt: "Allow for a slow transition to independence"
+  indian_partition.2.c.tt: "Fully let go of the Indian subcontinent"
 
   # Newly created states choose to join India or Pakistan
 
@@ -32,10 +32,10 @@
   indian_partition.3.b: "Our territory shall accede to Pakistan"
   indian_partition.3.c: "Our territory shall be partitioned to uphold peace and stability"
   indian_partition.3.d: "We will remain independent"
-  indian_partition.3.a.tt: "INDIAN PARTITION 1 TOOLTIP"
-  indian_partition.3.b.tt: "INDIAN PARTITION 1 TOOLTIP"
-  indian_partition.3.c.tt: "INDIAN PARTITION 1 TOOLTIP"
-  indian_partition.3.d.tt: "INDIAN PARTITION 1 TOOLTIP"
+  indian_partition.3.a.tt: "Get annexed to India"
+  indian_partition.3.b.tt: "Get annexed to Pakistan"
+  indian_partition.3.c.tt: "Partition your Territory between the two nations"
+  indian_partition.3.d.tt: "Remain independence"
 
   # Indian Constitution
 
@@ -51,7 +51,7 @@
   indian_partition.80.f: "With each passing hour, we draw closer and closer to greatness, on the eve of our freedom."
 
   indian_partition.80.a: "The time is now."
-  indian_partition.80.a.tt: "INDIAN PARTITION 1 TOOLTIP"
+  indian_partition.80.a.tt: "Establish an era of indigenous rule"
 
   # Indian Random Events
 
@@ -239,6 +239,34 @@
   indian_constitution.3.a: "Focus on Imports"
   indian_constitution.3.b: "Protect Local Stock"
   indian_constitution.3.c: "Freedom of the Economy before all"
+
+
+  indian_constitution.4.t: "What is Industry"
+  indian_constitution.4.d: "In the aftermath of our independence, we need to look towards ourselves and make considerations for a policy on economy and industrial development on the country."
+  indian_constitution.4.f: "In the realm of industrial policies, caution reigns. Post-colonial India echoes with shadows of peril. We move timidly, fearing the specter of political harm. With hesitant steps, we strive for progress, keeping our voices low, hoping for a brighter tomorrow."
+
+  indian_constitution.4.a: "We are an Agrarian Nation"
+  indian_constitution.4.b: "Continue Industrialisation Vigilantly"
+  indian_constitution.4.c: "Its a free world!"
+
+
+  indian_constitution.5.t: "Our Military"
+  indian_constitution.5.d: "As our country gains independence, it must seek to never let any country ever again violate its sacred sovereignty. While every centimeter of its land is sacred, a stance must be taken on the means and extent to which it will be guarded."
+  indian_constitution.5.f: "The climate around us is ever the tensest. This is the end of the age of crusader kings, and we need to look towards modern ideals in the framing of a military system, while keeping in mind the economic and social conditions around the country, and the Gandhian principles behind its formation."
+
+  indian_constitution.5.a: "Non-Violence is the supreme obligation"
+  indian_constitution.5.b: "Our military is an afterthought in our goals"
+  indian_constitution.5.c: "Protection of our people is the supreme obligation"
+
+
+  indian_constitution.6.t: "Power Structure"
+  indian_constitution.6.desc: "The nation is going through numerous changes in the fallout of Colonial Rule. Is it imperative to favour the voice of the people? Or should a pragmatic approach towards power sharing be adopted in these trying circumstances?"
+  indian_constitution.6.f: "The future of this nation rests upon the decision made in the assembly today; the day is filled with tension and uncertainty; which has led to a tense and uncertain feeling in the minds of many people. May god help us all."
+
+  indian_constitution.6.a: "Existing Institutions have satisfactorily controlled the powers that be."
+  indian_constitution.6.b: "Let the citizen rein supreme!"
+  indian_constitution.6.c: "Let the worker rein supreme!"
+  indian_constitution.6.d: "Let the leader rein supreme!"
 
   ######################################
   ############## MODIFIERS #############

@@ -1,0 +1,183 @@
+namespace = indian_constitution
+### End Event Chain Events
+
+indian_constitution.1 = {
+	type = country_event
+
+	title = indian_constitution.1.t
+	desc = indian_constitution.1.d
+	flavor = indian_constitution.1.f
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	event_image = {
+		texture = "gfx/interface/event_pictures/indian_constitution.dds"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/middleeast/courtroom_upheaval"
+	duration = 3
+
+	trigger = {
+		exists = c:HND
+		this = c:HND
+		NOT = { has_variable = indian_constitution_1 }
+	}
+	immediate = {
+		set_variable = {
+			name = indian_constitution_1
+		}
+	}
+	option = {
+		name = indian_constitution.1.a
+
+		activate_law = law_type:law_religious_policies
+		recalculate_pop_ig_support = yes
+
+		ai_chance = {
+			base = 15
+		}
+	}
+	option = {
+		default_option = yes
+
+		name = indian_constitution.1.b
+
+		activate_law = law_type:law_church_disestablishment
+		recalculate_pop_ig_support = yes
+
+		ai_chance = {
+			base = 85
+		}
+	}
+	option = {
+		name = indian_constitution.1.c
+		
+		activate_law = law_type:law_state_atheism
+		set_state_religion = rel:atheist
+
+		recalculate_pop_ig_support = yes
+		set_state_religion = rel:atheist
+		add_modifier = {
+			name = antireligious_policies
+			months = long_modifier_time
+		}
+
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+indian_constitution.2 = {
+	type = country_event
+
+	title = indian_constitution.2.t
+	desc = indian_constitution.2.d
+	flavor = indian_constitution.2.f
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	event_image = {
+		texture = "gfx/interface/event_pictures/indian_constitution.dds"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/middleeast/courtroom_upheaval"
+	duration = 3
+
+	trigger = {
+		exists = c:HND
+		this = c:HND
+		NOT = { has_variable = indian_constitution_2 }
+	}
+	immediate = {
+		set_variable = {
+			name = indian_constitution_2
+		}
+	}
+	option = {
+		name = indian_constitution.2.a
+
+		activate_law = law_type:law_consumption_based_taxation
+
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		default_option = yes
+
+		name = indian_constitution.2.b
+
+		activate_law = law_type:law_per_capita_based_taxation
+
+		ai_chance = {
+			base = 90
+		}
+	}
+	option = {
+		name = indian_constitution.2.c
+		
+		activate_law = law_type:law_profit_expropriation
+
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+indian_constitution.3 = {
+	type = country_event
+
+	title = indian_constitution.3.t
+	desc = indian_constitution.3.d
+	flavor = indian_constitution.3.f
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+	event_image = {
+		texture = "gfx/interface/event_pictures/indian_constitution.dds"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/middleeast/courtroom_upheaval"
+	duration = 3
+
+	trigger = {
+		exists = c:HND
+		this = c:HND
+		NOT = { has_variable = indian_constitution_3 }
+	}
+	immediate = {
+		set_variable = {
+			name = indian_constitution_3
+		}
+	}
+	option = {
+		name = indian_constitution.3.a
+
+		activate_law = law_type:law_import_substitution
+
+		ai_chance = {
+			base = 25
+		}
+	}
+	option = {
+		default_option = yes
+
+		name = indian_constitution.3.b
+
+		activate_law = law_type:law_protectionism
+
+		ai_chance = {
+			base = 50
+		}
+	}
+	option = {
+		name = indian_constitution.3.c
+		
+		activate_law = law_type:law_free_trade
+
+		ai_chance = {
+			base = 25
+		}
+	}
+}

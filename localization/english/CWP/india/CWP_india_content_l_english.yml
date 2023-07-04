@@ -204,6 +204,42 @@
   state_totalnoncooperation_modifier: "Total Non-Cooperation"
   state_totalnoncooperation_modifier_desc: "There is total Non-Cooperation in this state."
 
+  ### Indian Constitution ###
+
+  ### Journal Entries ###
+
+  indian_constitution: "The Indian Constitution"
+  indian_constitution_progress_desc: "Reformation"
+  indian_constitution_reason: "While India has regained its liberty from the shackles of colonial oppression, she is still encumbered by the weight of archaic laws and the residue of an era that should be forgiven, but never forgotten. This new nation is a fresh slate, from which we can move in any direction, and this power lies with the leaders..."
+  indian_constitution_complete_tooltip: "The Journal will complete after major laws are decided upon."
+
+  ### Events ###
+  indian_constitution.1.t: "Religious Legislature"
+  indian_constitution.1.d: "India is a country with a great variety of religious beliefs; which has led to debate on the topic of how to proceed with religious laws. Some suggest a separation of Church-and-State while others propose radical ideas influenced by the communist states of the world."
+  indian_constitution.1.f: "Voting is currently in progress and there is a great deal of trouble at this point in time."
+
+  indian_constitution.1.a: "Continue the British system of governance"
+  indian_constitution.1.b: "We must pursue a secular path."
+  indian_constitution.1.c: "We must radically alter society!"
+
+
+  indian_constitution.2.t: "Taxation Policy"
+  indian_constitution.2.d: "India is a country with a diverse picking of socioeconomic classes; her taxation policy is imperative in deciding the fate of the people. Should the policy of taxation be oriented towards the agrarian legacy of the Raj, or should it point towards the future..."
+  indian_constitution.2.f: "The voting booths are the second most tense place in the country. The first is the drafting council."
+
+  indian_constitution.2.a: "A relic of an older time is a gem today"
+  indian_constitution.2.b: "Retain our institutions"
+  indian_constitution.2.c: "Look to the future"
+
+
+  indian_constitution.3.t: "Trading Policy"
+  indian_constitution.3.d: "In the aftermath of our independence, we need to look towards ourselves and make considerations for a policy on international trade in the country."
+  indian_constitution.3.f: "Every man, woman and child in the country prepares for this outcome."
+
+  indian_constitution.3.a: "Focus on Imports"
+  indian_constitution.3.b: "Protect Local Stock"
+  indian_constitution.3.c: "Freedom of the Economy before all"
+
   ######################################
   ############## MODIFIERS #############
   ######################################

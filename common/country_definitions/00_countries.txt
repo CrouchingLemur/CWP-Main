@@ -1291,6 +1291,8 @@ HND = {
 		kashmiri
 		nepali
 		bengali
+		gujarati
+		panjabi
 		tani
 		manipuri
 		oriya

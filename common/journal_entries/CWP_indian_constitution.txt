@@ -6,13 +6,28 @@ indian_constitution = {
 
 	complete = {
 		custom_tooltip = {
-			# Following loc functions can be used:
-			# [JournalEntry.GetTotalGoalValue] - goal absolute value (fixed point)
-			# [JournalEntry.CalcCurrentGoalValue] - current progress absolute value (fixed point)
-			# [JournalEntry.GetGoalAddValue] - goal relative value (fixed point)
-			# [JournalEntry.GetGoalProgressValue] - current progress relative value (fixed point)
-			# [JournalEntry.GetGoalProgressPercent] = GetGoalProgressValue / GetGoalAddValue (fixed point)
-			text = indian_constitution_complete_tooltip
+			text = indian_constitution_var1_tt
+			has_variable = indian_constitution_1
+		}
+		custom_tooltip = {
+			text = indian_constitution_var2_tt
+			has_variable = indian_constitution_2
+		}
+		custom_tooltip = {
+			text = indian_constitution_var3_tt
+			has_variable = indian_constitution_3
+		}
+		custom_tooltip = {
+			text = indian_constitution_var4_tt
+			has_variable = indian_constitution_4
+		}
+		custom_tooltip = {
+			text = indian_constitution_var5_tt
+			has_variable = indian_constitution_5
+		}
+		custom_tooltip = {
+			text = indian_constitution_var6_tt
+			has_variable = indian_constitution_6
 		}
 	}
 
@@ -38,19 +53,8 @@ indian_constitution = {
 
 	}
 
-	# dynamically updated text, which describes the current status of the Journal Entry
-	# To use in loc or UI: [JournalEntry.GetStatusDesc]
-	# If this is not specified, GetStatusDesc will instead return loc from key <journal_entry_key>_status
-	status_desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = indian_constitution_progress_desc
-			}
-		}
-	}
-
 	# the number of days before this journal entry forcibly transitions, can be used to transition silently or into another event, framed either as success, failure, or neutral; if left blank or set to zero, will not time out
-	timeout = 186
+	timeout = 0
 
 	# effect which is executed when journal entry is timed out
 	on_timeout = {

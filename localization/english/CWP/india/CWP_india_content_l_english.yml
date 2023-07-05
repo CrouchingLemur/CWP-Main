@@ -7,6 +7,7 @@
   indian_partition_progress_desc: "National Unity"
   indian_partition_reason: "India has been subjugated by the British Empire for two centuries. As the crown is weakened in the fallout of the Second World War, the Indian Subcontinent is bound to break free from the shackles of colonial rule. However the fate of the nation rests in the hands of those who push the freedom movement forward."
   indian_partition_complete_tooltip: "National Unity 100/100 or Journal times out."
+  indian_partition_oncomplete_tooltip: "Releases the Countries and their constituent states to decides their fates"
 
   ### Events ###
   # British Reaction to Indian Partition
@@ -15,12 +16,12 @@
   indian_partition.2.desc: "Colonial Rule in India cannot be sustained in the fallout of the Second World War. The British Crown in its current state cannot exert control over the entirety of India. The time has come for Decolonial action."
   indian_partition.2.f: "As much as it pains me to say it, the winds of change are blowing in India. The call for independence grows stronger with each passing day, and it is a difficult reality to ignore. We cannot deny the immense contributions of the Indian people to our empire, and it is only natural that they should desire self-governance. However, we must proceed with caution and ensure that the transition to independence is peaceful and orderly. The future of India is in their hands, and I hope that they will use this opportunity to create a prosperous and united nation, worthy of its rich history and culture."
 
-  indian_partition.2.a: "The newly formed India needs us"
+  indian_partition.2.a: "We cannot control the Indian Subcontinent any longer"
   indian_partition.2.b: "We must peacefully transition to an independent state"
-  indian_partition.2.c: "We cannot control the Indian Subcontinent any longer"
-  indian_partition.2.a.tt: "Keep India under our political foot"
+  indian_partition.2.c: "The newly formed India needs us" 
+  indian_partition.2.a.tt: "Fully let go of the Indian subcontinent"
   indian_partition.2.b.tt: "Allow for a slow transition to independence"
-  indian_partition.2.c.tt: "Fully let go of the Indian subcontinent"
+  indian_partition.2.c.tt: "Keep India under our political foot"
 
   # Newly created states choose to join India or Pakistan
 
@@ -210,8 +211,15 @@
 
   indian_constitution: "The Indian Constitution"
   indian_constitution_progress_desc: "Reformation"
+  indian_constitution_goal: "Reformation of the nation's political and economic framework in order to approach the future with strong policies"
   indian_constitution_reason: "While India has regained its liberty from the shackles of colonial oppression, she is still encumbered by the weight of archaic laws and the residue of an era that should be forgiven, but never forgotten. This new nation is a fresh slate, from which we can move in any direction, and this power lies with the leaders..."
-  indian_constitution_complete_tooltip: "The Journal will complete after major laws are decided upon."
+
+  indian_constitution_var1_tt: "Has decided Religious Policy"
+  indian_constitution_var2_tt: "Has decided Taxation Policy"
+  indian_constitution_var3_tt: "Has decided Trading Policy"
+  indian_constitution_var4_tt: "Has decided Industrial Policy"
+  indian_constitution_var5_tt: "Has decided Military Policy"
+  indian_constitution_var6_tt: "Has decided Distribution of Power"
 
   ### Events ###
   indian_constitution.1.t: "Religious Legislature"

@@ -33,8 +33,7 @@
 	}
 
 	# completion trigger, use is_goal_complete = yes in here if you're testing a tracked goal metric; if left blank, cannot be completed
-	complete = {
-		global_var:indian_national_unity >= 100
+	complete = {	
 		custom_tooltip = {
 			# Following loc functions can be used:
 			# [JournalEntry.GetTotalGoalValue] - goal absolute value (fixed point)
@@ -42,15 +41,19 @@
 			# [JournalEntry.GetGoalAddValue] - goal relative value (fixed point)
 			# [JournalEntry.GetGoalProgressValue] - current progress relative value (fixed point)
 			# [JournalEntry.GetGoalProgressPercent] = GetGoalProgressValue / GetGoalAddValue (fixed point)
+			global_var:indian_national_unity >= 100
 			text = indian_partition_complete_tooltip
 		}
 	}
 
 	# effect which is executed when 'complete' trigger becomes true
 	on_complete = {
-		trigger_event = {
-			id = indian_partition.1
-			days = 0
+		custom_tooltip = {
+			trigger_event = {
+				id = indian_partition.1
+				days = 0
+			}
+			text = indian_partition_oncomplete_tooltip
 		}
 	}
 

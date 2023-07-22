@@ -18,6 +18,7 @@ pmg_infantry_barracks = {
 		pm_guerrillas
 		pm_light_infantry
 		pm_motorized_infantry
+		pm_mechanized_infantry
 		pm_air_assault_infantry
 		pm_static_defenses
 		pm_defense_in_depth
@@ -43,7 +44,7 @@ pmg_armoured_barracks = {
 	production_methods = {
 		pm_no_armor
 		pm_reconnaissance_vehicles
-		pm_amphibious_assault_vehicles
+		pm_assault_vehicles
 		pm_armored_formations
 		pm_attack_helicopters
 	}

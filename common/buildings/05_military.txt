@@ -30,11 +30,11 @@ building_conscription_center = {
 	texture = "gfx/interface/icons/building_icons/building_conscription_center.dds"
 	production_method_groups = {
 		pmg_training_conscription
-		pmg_infantry_conscription
-		pmg_artillery_conscription
-		pmg_armoured_conscription
-		pmg_air_support_conscription
-		pmg_hospitals_conscription
+		pmg_infantry_barracks
+		pmg_artillery_barracks
+		pmg_armoured_barracks
+		pmg_air_support_barracks
+		pmg_hospitals_barracks
 	}
 }
 

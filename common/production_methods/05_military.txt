@@ -23,9 +23,6 @@ pm_irregulars = {
 			state_conscription_rate_add = 0.05
 		}
 	}
-	timed_modifiers = {
-		pm_training_change_modifier
-	}
 }
 
 pm_regular_formations = {
@@ -155,9 +152,6 @@ pm_guerrillas = {
 			country_army_power_projection_add = 1
 		}
 	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
 }
 
 pm_light_infantry = {
@@ -277,6 +271,7 @@ pm_air_assault_infantry = {
 		unscaled = {
 			unit_provinces_captured_mult = 1
 			unit_provinces_lost_mult = 1
+			unit_advancement_speed_mult = 0.5
 		}
 	}
 	country_modifiers = {
@@ -460,6 +455,7 @@ pm_motorized_guns = {
 			unit_kill_rate_add = 0.1
 			unit_devastation_mult = 0.25
 			unit_supply_consumption_mult = 0.5
+			unit_advancement_speed_mult = 0.1
 		}
 	}
 	country_modifiers = {
@@ -498,6 +494,7 @@ pm_self_propelled_guns = {
 			unit_kill_rate_add = 0.1
 			unit_devastation_mult = 0.25
 			unit_supply_consumption_mult = 0.5
+			unit_advancement_speed_mult = 0.15
 		}
 	}
 	country_modifiers = {
@@ -537,7 +534,6 @@ pm_missile_artillery = {
 			unit_morale_damage_mult = 0.1
 			unit_kill_rate_add = 0.2
 			unit_devastation_mult = 0.25
-			building_mobilization_cost_mult = 0.25
 			unit_supply_consumption_mult = 1
 		}
 	}
@@ -604,7 +600,8 @@ pm_assault_vehicles = {
 	}
 	building_modifiers = {
 		workforce_scaled = {
-			building_input_armored_fighting_vehicle_add = 2
+			building_input_automobiles_add = 1
+			building_input_armored_fighting_vehicle_add = 1
 			building_input_ammunition_add = 2
 			building_input_refined_fuel_add = 2
 		}
@@ -613,7 +610,7 @@ pm_assault_vehicles = {
 			building_employment_officers_add = 500
 		}
 		unscaled = {
-			unit_offense_mult = 0.1
+			unit_army_offense_mult = 0.1
 			unit_kill_rate_add = 0.1
 			unit_supply_consumption_mult = 0.25
 			unit_provinces_captured_mult = 0.15
@@ -639,17 +636,17 @@ pm_armored_formations = {
 	}
 	building_modifiers = {
 		workforce_scaled = {
-			building_input_armored_fighting_vehicle_add = 5
-			building_input_ammunition_add = 4
-			building_input_refined_fuel_add = 3
+			building_input_armored_fighting_vehicle_add = 3
+			building_input_ammunition_add = 2
+			building_input_refined_fuel_add = 2
 		}
 		level_scaled = {
 			building_employment_servicemembers_add = -1000
 			building_employment_officers_add = 1000
 		}
 		unscaled = {
-			unit_offense_mult = 0.05
-			unit_defense_mult = 0.15
+			unit_army_offense_mult = 0.05
+			unit_army_defense_mult = 0.15
 			unit_kill_rate_add = 0.05
 			unit_supply_consumption_mult = 0.5
 			unit_provinces_captured_mult = 0.25
@@ -687,7 +684,7 @@ pm_attack_helicopters = {
 			building_employment_officers_add = 1500
 		}
 		unscaled = {
-			unit_offense_mult = 0.2
+			unit_army_offense_mult = 0.2
 			unit_kill_rate_add = 0.15
 			unit_supply_consumption_mult = 0.5
 			unit_provinces_captured_mult = 0.5
@@ -772,7 +769,6 @@ pm_close_air_support = {
 			unit_morale_damage_mult = 0.1
 			unit_kill_rate_add = 0.1
 			unit_devastation_mult = 0.25
-			building_mobilization_cost_mult = 0.25
 			unit_supply_consumption_mult = 1
 		}
 	}
@@ -812,7 +808,6 @@ pm_strategic_bombing = {
 			unit_morale_damage_mult = 0.15
 			unit_kill_rate_add = 0.25
 			unit_devastation_mult = 2
-			building_mobilization_cost_mult = 0.25
 			unit_supply_consumption_mult = 1
 		}
 	}
@@ -885,7 +880,7 @@ pm_air_reconnaissance = {
 		}
 		unscaled = {
 			unit_morale_loss_mult = -0.1
-			unit_offense_mult = 0.1
+			unit_army_offense_mult = 0.1
 			unit_advancement_speed_mult = 0.5
 			unit_provinces_captured_mult = 1
 		}
@@ -927,7 +922,6 @@ pm_penetrating_strikes = {
 			unit_morale_damage_mult = 0.15
 			unit_kill_rate_add = 0.15
 			unit_devastation_mult = 0.25
-			building_mobilization_cost_mult = 0.35
 			unit_supply_consumption_mult = 1
 		}
 	}
@@ -949,6 +943,9 @@ pm_no_field_care = {
 			unit_recovery_rate_add = 0.15
 		}
 	}
+	timed_modifiers = {
+		pm_medical_support_change_modifier
+	}
 }
 
 pm_first_aid = {
@@ -966,6 +963,9 @@ pm_first_aid = {
 			unit_morale_loss_mult = -0.15
 			unit_recovery_rate_add = 0.25
 		}
+	}
+	timed_modifiers = {
+		pm_medical_support_change_modifier
 	}
 }
 
@@ -986,6 +986,9 @@ pm_field_hospitals = {
 			unit_recovery_rate_add = 0.45
 		}
 	}
+	timed_modifiers = {
+		pm_medical_support_change_modifier
+	}
 }
 
 pm_casualty_evacuation = {
@@ -1005,6 +1008,9 @@ pm_casualty_evacuation = {
 			unit_recovery_rate_add = 0.65
 		}
 	}
+	timed_modifiers = {
+		pm_medical_support_change_modifier
+	}
 }
 
 pm_theater_hospitals = {
@@ -1023,6 +1029,9 @@ pm_theater_hospitals = {
 			unit_morale_loss_mult = -0.45
 			unit_recovery_rate_add = 0.75
 		}
+	}
+	timed_modifiers = {
+		pm_medical_support_change_modifier
 	}
 }
 

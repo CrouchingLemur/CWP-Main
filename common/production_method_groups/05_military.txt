@@ -1,18 +1,26 @@
 ﻿# Barracks
-pmg_organization_barracks = {
+pmg_training_barracks = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_military.dds"
 	ai_selection = most_productive
 	production_methods = {
-		pm_pre_war_infantry
-		pm_post_war_infantry
-		pm_2nd_generation_infantry
-		pm_3rd_generation_infantry
-		pm_4th_generation_infantry
-		pm_5th_generation_infantry
-		pm_6th_generation_infantry
-		pm_7th_generation_infantry
-		pm_8th_generation_infantry
-		pm_9th_generation_infantry
+		pm_irregulars
+		pm_regular_formations
+		pm_professional_ncos
+		pm_contract_soldiers
+		pm_career_soldiers
+	}
+}
+
+pmg_infantry_barracks = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_military.dds"
+	ai_selection = most_productive
+	production_methods = {
+		pm_guerrillas
+		pm_light_infantry
+		pm_motorized_infantry
+		pm_air_assault_infantry
+		pm_static_defenses
+		pm_defense_in_depth
 	}
 }
 
@@ -21,112 +29,60 @@ pmg_artillery_barracks = {
 	ai_selection = most_productive
 	production_methods = {
 		pm_no_artillery
-		pm_pre_war_artillery
-		pm_wartime_artillery
-		pm_post_war_artillery
-		pm_self_propelled_artillery
-		pm_mlrs_artillery
-		pm_guided_missile_artillery
+		pm_massed_fires
+		pm_country_battery_fires
+		pm_motorized_guns
+		pm_self_propelled_guns
+		pm_missile_artillery
 	}
 }
 
-pmg_armoured_integration_barracks = {
+pmg_armoured_barracks = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_military.dds"
 	ai_selection = most_productive
 	production_methods = {
-		pm_no_armoured_integration
-		pm_pre_war_tanks
-		pm_main_battle_tanks
-		pm_2nd_generation_tanks
-		pm_3rd_generation_tanks
-		pm_modernized_3rd_generation_tanks
-		pm_4th_generation_tanks
+		pm_no_armor
+		pm_reconnaissance_vehicles
+		pm_amphibious_assault_vehicles
+		pm_armored_formations
+		pm_attack_helicopters
 	}
 }
 
-pmg_motorization = {
+pmg_air_support_barracks = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_military.dds"
 	ai_selection = most_productive
 	production_methods = {
-		pm_no_motorized
-		pm_motorized
-		pm_armoured_personnel_carriers
-		pm_infantry_fighting_vehicles_carriers
-		pm_multi_role_armored_fighting_vehicles
+		pm_no_air_support
+		pm_air_logistics
+		pm_close_air_support
+		pm_strategic_bombing
+		pm_air_superiority
+		pm_air_reconnaissance
+		pm_penetrating_strikes
 	}
 }
 
-pmg_reconnaissance = {
+pmg_hospitals_barracks = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_military.dds"
 	ai_selection = most_productive
 	production_methods = {
-		pm_no_special_reconnaissance
-		pm_infantry_reconnaissance
-		pm_motorized_reconnaissance
-		pm_armoured_reconnaissance
-		pm_helicopter_reconnaissance
-		pm_drone_reconnaissance
-	}
-}
-
-pmg_communications = {
-	texture = "gfx/interface/icons/generic_icons/mixed_icon_military.dds"
-	ai_selection = most_productive
-	production_methods = {
-		pm_no_communications_support
-		pm_radio_posts
-		pm_radio_backpacks
-		pm_long_range_portable_radios
-		pm_satellite_communications
-		pm_computerized_communications
-	}
-}
-
-pmg_aircraft_military = {
-	texture = "gfx/interface/icons/generic_icons/mixed_icon_military.dds"
-	ai_selection = most_productive
-	production_methods = {
-		pm_no_aircraft
-		pm_pre_war_military_aircraft
-		pm_post_war_fighters
-		pm_jet_fighters
-		pm_supersonic_jet_fighters
-		pm_3rd_generation_jet_fighters
-		pm_4th_generation_jet_fighters
-		pm_45th_generation_jet_fighters
-		pm_5th_generation_jet_fighters
-		pm_6th_generation_jet_fighters
-		pm_7th_generation_jet_fighters
-	}
-}
-
-pmg_medical_aid_barracks = {
-	texture = "gfx/interface/icons/generic_icons/mixed_icon_military.dds"
-	ai_selection = most_productive
-	production_methods = {
-		pm_no_formal_medical_support
-		pm_combat_medics
-		pm_army_field_hospitals
-		pm_medical_logistics
-		pm_medevac
+		pm_no_field_care
+		pm_first_aid
+		pm_field_hospitals
+		pm_casualty_evacuation
+		pm_theater_hospitals
 	}
 }
 
 # Conscription Centers
-pmg_organization_conscription = {
+pmg_training_conscription = {
 	texture = "gfx/interface/icons/generic_icons/mixed_icon_military.dds"
 	ai_selection = most_productive
 	production_methods = {
-		pm_pre_war_infantry_conscription
-		pm_post_war_infantry_conscription
-		pm_2nd_generation_infantry_conscription
-		pm_3rd_generation_infantry_conscription
-		pm_4th_generation_infantry_conscription
-		pm_5th_generation_infantry_conscription
-		pm_6th_generation_infantry_conscription
-		pm_7th_generation_infantry_conscription
-		pm_8th_generation_infantry_conscription
-		pm_9th_generation_infantry_conscription
+		pm_irregulars
+		pm_regular_formations
+		pm_professional_ncos
 	}
 }
 
@@ -217,8 +173,9 @@ pmg_naval_command_and_control = {
 		pm_C3_technology_enhanced_human_control
 		pm_c3_computer_controlled
 		pm_ai_naval_command
-    }
+	}
 }
 
 #This is internally referenced by game itself - removal of it causes "failed to cache" error.
-pmg_organization = {}
+pmg_organization = {
+}

@@ -4,21 +4,15 @@ building_barracks = {
 	recruits_combat_unit = combat_unit_regular
 	texture = "gfx/interface/icons/building_icons/building_barracks.dds"
 	city_type = city
-
 	has_max_level = yes
 	levels_per_mesh = 25
-	unlocking_technologies = {
-		interwar_military_technology
-	}
 	production_method_groups = {
-		pmg_organization_barracks
+		pmg_training_barracks
+		pmg_infantry_barracks
 		pmg_artillery_barracks
-		pmg_armoured_integration_barracks
-		pmg_motorization
-		pmg_aircraft_military
-		pmg_reconnaissance
-		pmg_communications
-		pmg_medical_aid_barracks
+		pmg_armoured_barracks
+		pmg_air_support_barracks
+		pmg_hospitals_barracks
 	}
 	required_construction = construction_cost_very_low
 }
@@ -35,13 +29,12 @@ building_conscription_center = {
 	recruits_combat_unit = combat_unit_conscript
 	texture = "gfx/interface/icons/building_icons/building_conscription_center.dds"
 	production_method_groups = {
-		pmg_organization_conscription
-		pmg_artillery_barracks
-		pmg_armoured_integration_barracks
-		pmg_motorization
-		pmg_reconnaissance
-		pmg_communications
-		pmg_medical_aid_barracks
+		pmg_training_conscription
+		pmg_infantry_conscription
+		pmg_artillery_conscription
+		pmg_armoured_conscription
+		pmg_air_support_conscription
+		pmg_hospitals_conscription
 	}
 }
 

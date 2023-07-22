@@ -1,24 +1,153 @@
 ﻿################## Barracks & Conscription Centers ##############
-# Organization PMG
-pm_pre_war_infantry = {
+# Training PMG
+pm_irregulars = {
 	texture = "gfx/interface/icons/production_method_icons/military/pre_war_infantry.dds"
-	is_default = yes
+	is_default = no
+	unlocking_laws = {
+		law_irregular_military
+		law_reserve_military
+	}
 	building_modifiers = {
-		workforce_scaled = {
-			building_input_ammunition_add = 2
-			building_input_small_arms_add = 2
-		}
 		level_scaled = {
-			building_employment_servicemembers_add = 9700
-			building_employment_officers_add = 300
-			building_training_rate_add = 400
-		}
-		throughput_scaled = {
-			unit_offense_add = 8
-			unit_defense_add = 12
+			building_employment_servicemembers_add = 10000
+			building_training_rate_add = 1000
 		}
 		unscaled = {
 			unit_morale_loss_add = 15
+			building_mobilization_cost_mult = 1
+			building_input_mult = -0.5
+		}
+	}
+	state_modifiers = {
+		unscaled = {
+			state_conscription_rate_add = 0.05
+		}
+	}
+	timed_modifiers = {
+		pm_training_change_modifier
+	}
+}
+
+pm_regular_formations = {
+	texture = "gfx/interface/icons/production_method_icons/military/post_war_infantry.dds"
+	unlocking_laws = {
+		law_private_military
+		law_volunteer_only_military
+		law_professional_military
+		law_reserve_military
+	}
+	is_default = yes
+	building_modifiers = {
+		level_scaled = {
+			building_employment_servicemembers_add = 10000
+			building_training_rate_add = 500
+		}
+		unscaled = {
+			unit_morale_loss_add = 12
+			building_mobilization_cost_mult = 0.6
+		}
+	}
+	state_modifiers = {
+		unscaled = {
+			state_conscription_rate_add = 0.025
+		}
+	}
+	timed_modifiers = {
+		pm_training_change_modifier
+	}
+}
+
+pm_professional_ncos = {
+	texture = "gfx/interface/icons/production_method_icons/military/2nd_gen_infantry.dds"
+	unlocking_laws = {
+		law_private_military
+		law_volunteer_only_military
+		law_professional_military
+		law_reserve_military
+	}
+	building_modifiers = {
+		level_scaled = {
+			building_employment_servicemembers_add = 10000
+			building_training_rate_add = 400
+		}
+		unscaled = {
+			unit_morale_loss_add = 10
+			building_mobilization_cost_mult = 0.5
+			building_input_mult = 0.05
+		}
+	}
+	state_modifiers = {
+		unscaled = {
+			state_conscription_rate_add = 0.01
+		}
+	}
+	timed_modifiers = {
+		pm_training_change_modifier
+	}
+}
+
+pm_contract_soldiers = {
+	texture = "gfx/interface/icons/production_method_icons/military/3rd_gen_infantry.dds"
+	unlocking_laws = {
+		law_private_military
+		law_volunteer_only_military
+		law_professional_military
+	}
+	building_modifiers = {
+		level_scaled = {
+			building_employment_servicemembers_add = 10000
+			building_training_rate_add = 300
+		}
+		unscaled = {
+			unit_morale_loss_add = 8
+			building_mobilization_cost_mult = 0.25
+			building_input_mult = 0.1
+		}
+	}
+	timed_modifiers = {
+		pm_training_change_modifier
+	}
+}
+
+pm_career_soldiers = {
+	texture = "gfx/interface/icons/production_method_icons/military/4th_gen_infantry.dds"
+	unlocking_laws = {
+		law_private_military
+		law_volunteer_only_military
+	}
+	building_modifiers = {
+		level_scaled = {
+			building_employment_servicemembers_add = 10000
+			building_training_rate_add = 200
+		}
+		unscaled = {
+			unit_morale_loss_add = 5
+			building_input_mult = 0.25
+		}
+	}
+	timed_modifiers = {
+		pm_training_change_modifier
+	}
+}
+
+## Infantry PMG
+pm_guerrillas = {
+	texture = "gfx/interface/icons/production_method_icons/military/pre_war_infantry.dds"
+	is_default = no
+	unlocking_production_methods = {
+		pm_irregulars
+	}
+	unlocking_laws = {
+		law_irregular_military
+	}
+	building_modifiers = {
+		throughput_scaled = {
+			unit_offense_add = 8
+			unit_defense_add = 35
+		}
+		unscaled = {
+			unit_provinces_captured_mult = -0.5
+			unit_provinces_lost_mult = -0.5
 		}
 	}
 	country_modifiers = {
@@ -31,339 +160,8 @@ pm_pre_war_infantry = {
 	}
 }
 
-pm_post_war_infantry = {
+pm_light_infantry = {
 	texture = "gfx/interface/icons/production_method_icons/military/post_war_infantry.dds"
-	unlocking_technologies = {
-		squad_based_infantry_tactics
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_ammunition_add = 4
-			building_input_small_arms_add = 4
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = 9500
-			building_employment_officers_add = 500
-			building_training_rate_add = 350
-		}
-		throughput_scaled = {
-			unit_offense_add = 15
-			unit_defense_add = 22
-		}
-		unscaled = {
-			unit_morale_loss_add = 10
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 3
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_2nd_generation_infantry = {
-	texture = "gfx/interface/icons/production_method_icons/military/2nd_gen_infantry.dds"
-	unlocking_technologies = {
-		recoilless_rifles
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_ammunition_add = 6
-			building_input_telecommunications_add = 1
-			building_input_small_arms_add = 6
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = 9000
-			building_employment_officers_add = 1000
-			building_training_rate_add = 300
-		}
-		throughput_scaled = {
-			unit_offense_add = 25
-			unit_defense_add = 37
-		}
-		unscaled = {
-			unit_morale_loss_add = 10
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 5
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_3rd_generation_infantry = {
-	texture = "gfx/interface/icons/production_method_icons/military/3rd_gen_infantry.dds"
-	unlocking_technologies = {
-		rocket_propelled_grenades
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_ammunition_add = 8
-			building_input_telecommunications_add = 2
-			building_input_small_arms_add = 8
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = 8500
-			building_employment_officers_add = 1500
-			building_training_rate_add = 250
-		}
-		throughput_scaled = {
-			unit_offense_add = 35
-			unit_defense_add = 52
-		}
-		unscaled = {
-			unit_morale_loss_add = 8
-			unit_provinces_captured_mult = -0.25
-			unit_provinces_lost_mult = -0.25
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 7
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_4th_generation_infantry = {
-	texture = "gfx/interface/icons/production_method_icons/military/4th_gen_infantry.dds"
-	unlocking_technologies = {
-		wire_guided_anti_tank_weapons
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_ammunition_add = 10
-			building_input_telecommunications_add = 3
-			building_input_small_arms_add = 10
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = 8000
-			building_employment_officers_add = 2000
-			building_training_rate_add = 200
-		}
-		throughput_scaled = {
-			unit_offense_add = 45
-			unit_defense_add = 67
-		}
-		unscaled = {
-			unit_morale_loss_add = 6
-			unit_provinces_lost_mult = -0.25
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 9
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_5th_generation_infantry = {
-	texture = "gfx/interface/icons/production_method_icons/military/5th_gen_infantry.dds"
-	unlocking_technologies = {
-		shoulder_launched_guided_anti_tank_missiles
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_ammunition_add = 12
-			building_input_electronics_add = 2
-			building_input_telecommunications_add = 4
-			building_input_small_arms_add = 12
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = 7500
-			building_employment_officers_add = 2500
-			building_training_rate_add = 175
-		}
-		throughput_scaled = {
-			unit_offense_add = 59
-			unit_defense_add = 88
-		}
-		unscaled = {
-			unit_morale_loss_add = 4
-			unit_provinces_captured_mult = 0.25
-			unit_devastation_mult = 0.15
-			# should add Battle Condition chance
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 11
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_6th_generation_infantry = {
-	texture = "gfx/interface/icons/production_method_icons/military/6th_gen_infantry.dds"
-	unlocking_technologies = {
-		ballistic_vests
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_ammunition_add = 12
-			building_input_electronics_add = 3
-			building_input_telecommunications_add = 5
-			building_input_small_arms_add = 12
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = 7500
-			building_employment_officers_add = 2500
-			building_training_rate_add = 150
-		}
-		throughput_scaled = {
-			unit_offense_add = 59
-			unit_defense_add = 106
-		}
-		unscaled = {
-			unit_morale_loss_add = 6
-			unit_provinces_captured_mult = 0.25
-			unit_devastation_mult = 0.15
-			# should add Battle Condition chance
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 15
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_7th_generation_infantry = {
-	texture = "gfx/interface/icons/production_method_icons/military/7th_gen_infantry.dds"
-	unlocking_technologies = {
-		active_command_systems
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_ammunition_add = 16
-			building_input_electronics_add = 4
-			building_input_telecommunications_add = 5
-			building_input_small_arms_add = 16
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = 7500
-			building_employment_officers_add = 2500
-			building_training_rate_add = 125
-		}
-		throughput_scaled = {
-			unit_offense_add = 80
-			unit_defense_add = 120
-		}
-		unscaled = {
-			unit_morale_loss_add = 8
-			unit_provinces_captured_mult = 0.25
-			unit_devastation_mult = 0.15
-			# should add Battle Condition chance
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 20
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_8th_generation_infantry = {
-	texture = "gfx/interface/icons/production_method_icons/military/8th_gen_infantry.dds"
-	unlocking_technologies = {
-		network_squad_command
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_ammunition_add = 18
-			building_input_electronics_add = 5
-			building_input_telecommunications_add = 5
-			building_input_computers_add = 1
-			building_input_small_arms_add = 18
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = 7500
-			building_employment_officers_add = 2500
-			building_training_rate_add = 100
-		}
-		throughput_scaled = {
-			unit_offense_add = 92
-			unit_defense_add = 138
-		}
-		unscaled = {
-			unit_morale_loss_add = 9
-			unit_provinces_captured_mult = 0.25
-			unit_devastation_mult = 0.15
-			# should add Battle Condition chance
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 25
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_9th_generation_infantry = {
-	texture = "gfx/interface/icons/production_method_icons/military/9th_gen_infantry.dds"
-	unlocking_technologies = {
-		full_suit_body_armor		#temporary
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_ammunition_add = 20
-			building_input_electronics_add = 6
-			building_input_computers_add = 2
-			building_input_telecommunications_add = 5
-			building_input_small_arms_add = 20
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = 7500
-			building_employment_officers_add = 2500
-			building_training_rate_add = 100
-		}
-		throughput_scaled = {
-			unit_offense_add = 104
-			unit_defense_add = 157
-		}
-		unscaled = {
-			unit_morale_loss_add = 10
-			unit_provinces_captured_mult = 0.25
-			unit_devastation_mult = 0.15
-			# should add Battle Condition chance
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 30
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-## Conscription Center PMs
-pm_pre_war_infantry_conscription = {
-	texture = "gfx/interface/icons/production_method_icons/military/pre_war_infantry.dds"
 	is_default = yes
 	building_modifiers = {
 		workforce_scaled = {
@@ -371,21 +169,17 @@ pm_pre_war_infantry_conscription = {
 			building_input_small_arms_add = 2
 		}
 		level_scaled = {
-			building_employment_servicemembers_add = 9700
-			building_employment_officers_add = 300
-			building_training_rate_add = 400
+			building_employment_servicemembers_add = -250
+			building_employment_officers_add = 250
 		}
 		throughput_scaled = {
-			unit_offense_add = 8
-			unit_defense_add = 12
-		}
-		unscaled = {
-			unit_morale_loss_add = 15
+			unit_offense_add = 15
+			unit_defense_add = 22
 		}
 	}
 	country_modifiers = {
 		workforce_scaled = {
-			country_army_power_projection_add = 1
+			country_army_power_projection_add = 2
 		}
 	}
 	timed_modifiers = {
@@ -393,27 +187,62 @@ pm_pre_war_infantry_conscription = {
 	}
 }
 
-pm_post_war_infantry_conscription = {
-	texture = "gfx/interface/icons/production_method_icons/military/post_war_infantry.dds"
+pm_motorized_infantry = {
+	texture = "gfx/interface/icons/production_method_icons/military/2nd_gen_infantry.dds"
 	unlocking_technologies = {
-		squad_based_infantry_tactics
 	}
 	building_modifiers = {
 		workforce_scaled = {
-			building_input_ammunition_add = 4
-			building_input_small_arms_add = 4
+			building_input_ammunition_add = 2
+			building_input_automobiles_add = 1
+			building_input_refined_fuel_add = 1
+			building_input_small_arms_add = 2
 		}
 		level_scaled = {
-			building_employment_servicemembers_add = 9500
+			building_employment_servicemembers_add = -500
 			building_employment_officers_add = 500
-			building_training_rate_add = 350
 		}
 		throughput_scaled = {
-			unit_offense_add = 15
-			unit_defense_add = 22
+			unit_offense_add = 22
+			unit_defense_add = 15
 		}
 		unscaled = {
-			unit_morale_loss_add = 10
+			unit_provinces_captured_mult = 0.25
+			unit_provinces_lost_mult = 0.25
+		}
+	}
+	country_modifiers = {
+		workforce_scaled = {
+			country_army_power_projection_add = 2
+		}
+	}
+	timed_modifiers = {
+		pm_offense_defense_readjustment
+	}
+}
+
+pm_mechanized_infantry = {
+	texture = "gfx/interface/icons/production_method_icons/military/3rd_gen_infantry.dds"
+	unlocking_technologies = {
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_input_ammunition_add = 2
+			building_input_armored_fighting_vehicle_add = 1
+			building_input_small_arms_add = 2
+			building_input_refined_fuel_add = 1
+		}
+		level_scaled = {
+			building_employment_servicemembers_add = -500
+			building_employment_officers_add = 500
+		}
+		throughput_scaled = {
+			unit_offense_add = 28
+			unit_defense_add = 12
+		}
+		unscaled = {
+			unit_provinces_captured_mult = 0.25
+			unit_provinces_lost_mult = 0.25
 		}
 	}
 	country_modifiers = {
@@ -426,33 +255,33 @@ pm_post_war_infantry_conscription = {
 	}
 }
 
-pm_2nd_generation_infantry_conscription = {
-	texture = "gfx/interface/icons/production_method_icons/military/2nd_gen_infantry.dds"
+pm_air_assault_infantry = {
+	texture = "gfx/interface/icons/production_method_icons/military/4th_gen_infantry.dds"
 	unlocking_technologies = {
-		recoilless_rifles
 	}
 	building_modifiers = {
 		workforce_scaled = {
-			building_input_ammunition_add = 6
-			building_input_telecommunications_add = 1
-			building_input_small_arms_add = 6
+			building_input_ammunition_add = 2
+			building_input_military_aircraft_add = 1
+			building_input_small_arms_add = 2
+			building_input_refined_fuel_add = 1
 		}
 		level_scaled = {
-			building_employment_servicemembers_add = 9000
+			building_employment_servicemembers_add = -1000
 			building_employment_officers_add = 1000
-			building_training_rate_add = 300
 		}
 		throughput_scaled = {
-			unit_offense_add = 25
-			unit_defense_add = 37
+			unit_offense_add = 35
+			unit_defense_add = 7
 		}
 		unscaled = {
-			unit_morale_loss_add = 10
+			unit_provinces_captured_mult = 1
+			unit_provinces_lost_mult = 1
 		}
 	}
 	country_modifiers = {
 		workforce_scaled = {
-			country_army_power_projection_add = 5
+			country_army_power_projection_add = 4
 		}
 	}
 	timed_modifiers = {
@@ -460,35 +289,31 @@ pm_2nd_generation_infantry_conscription = {
 	}
 }
 
-pm_3rd_generation_infantry_conscription = {
-	texture = "gfx/interface/icons/production_method_icons/military/3rd_gen_infantry.dds"
+pm_static_defenses = {
+	texture = "gfx/interface/icons/production_method_icons/military/5th_gen_infantry.dds"
 	unlocking_technologies = {
-		rocket_propelled_grenades
 	}
 	building_modifiers = {
 		workforce_scaled = {
-			building_input_ammunition_add = 8
-			building_input_telecommunications_add = 2
-			building_input_small_arms_add = 8
+			building_input_ammunition_add = 3
+			building_input_small_arms_add = 3
 		}
 		level_scaled = {
-			building_employment_servicemembers_add = 8500
-			building_employment_officers_add = 1500
-			building_training_rate_add = 250
+			building_employment_servicemembers_add = -250
+			building_employment_officers_add = 250
 		}
 		throughput_scaled = {
-			unit_offense_add = 35
-			unit_defense_add = 52
+			unit_offense_add = 12
+			unit_defense_add = 35
 		}
 		unscaled = {
-			unit_morale_loss_add = 8
 			unit_provinces_captured_mult = -0.25
 			unit_provinces_lost_mult = -0.25
 		}
 	}
 	country_modifiers = {
 		workforce_scaled = {
-			country_army_power_projection_add = 7
+			country_army_power_projection_add = 2
 		}
 	}
 	timed_modifiers = {
@@ -496,226 +321,31 @@ pm_3rd_generation_infantry_conscription = {
 	}
 }
 
-pm_4th_generation_infantry_conscription = {
-	texture = "gfx/interface/icons/production_method_icons/military/4th_gen_infantry.dds"
-	unlocking_technologies = {
-		wire_guided_anti_tank_weapons
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_ammunition_add = 10
-			building_input_telecommunications_add = 3
-			building_input_small_arms_add = 10
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = 8000
-			building_employment_officers_add = 2000
-			building_training_rate_add = 200
-		}
-		throughput_scaled = {
-			unit_offense_add = 45
-			unit_defense_add = 67
-		}
-		unscaled = {
-			unit_morale_loss_add = 6
-			unit_provinces_lost_mult = -0.25
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 9
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_5th_generation_infantry_conscription = {
-	texture = "gfx/interface/icons/production_method_icons/military/5th_gen_infantry.dds"
-	unlocking_technologies = {
-		shoulder_launched_guided_anti_tank_missiles
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_ammunition_add = 12
-			building_input_electronics_add = 2
-			building_input_telecommunications_add = 4
-			building_input_small_arms_add = 12
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = 7500
-			building_employment_officers_add = 2500
-			building_training_rate_add = 175
-		}
-		throughput_scaled = {
-			unit_offense_add = 59
-			unit_defense_add = 88
-		}
-		unscaled = {
-			unit_morale_loss_add = 4
-			unit_provinces_captured_mult = 0.25
-			unit_devastation_mult = 0.15
-			# should add Battle Condition chance
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 11
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_6th_generation_infantry_conscription = {
+pm_defense_in_depth = {
 	texture = "gfx/interface/icons/production_method_icons/military/6th_gen_infantry.dds"
 	unlocking_technologies = {
-		ballistic_vests
 	}
 	building_modifiers = {
 		workforce_scaled = {
-			building_input_ammunition_add = 12
-			building_input_electronics_add = 3
-			building_input_telecommunications_add = 5
-			building_input_small_arms_add = 12
+			building_input_ammunition_add = 4
+			building_input_small_arms_add = 3
 		}
 		level_scaled = {
-			building_employment_servicemembers_add = 7500
-			building_employment_officers_add = 2500
-			building_training_rate_add = 150
+			building_employment_servicemembers_add = -500
+			building_employment_officers_add = 500
 		}
 		throughput_scaled = {
-			unit_offense_add = 59
-			unit_defense_add = 106
+			unit_offense_add = 4
+			unit_defense_add = 46
 		}
 		unscaled = {
-			unit_morale_loss_add = 6
-			unit_provinces_captured_mult = 0.25
-			unit_devastation_mult = 0.15
-			# should add Battle Condition chance
+			unit_provinces_captured_mult = -0.5
+			unit_provinces_lost_mult = -0.5
 		}
 	}
 	country_modifiers = {
 		workforce_scaled = {
-			country_army_power_projection_add = 15
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_7th_generation_infantry_conscription = {
-	texture = "gfx/interface/icons/production_method_icons/military/7th_gen_infantry.dds"
-	unlocking_technologies = {
-		active_command_systems
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_ammunition_add = 16
-			building_input_electronics_add = 4
-			building_input_telecommunications_add = 5
-			building_input_small_arms_add = 16
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = 7500
-			building_employment_officers_add = 2500
-			building_training_rate_add = 125
-		}
-		throughput_scaled = {
-			unit_offense_add = 80
-			unit_defense_add = 120
-		}
-		unscaled = {
-			unit_morale_loss_add = 8
-			unit_provinces_captured_mult = 0.25
-			unit_devastation_mult = 0.15
-			# should add Battle Condition chance
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 20
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_8th_generation_infantry_conscription = {
-	texture = "gfx/interface/icons/production_method_icons/military/8th_gen_infantry.dds"
-	unlocking_technologies = {
-		network_squad_command
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_ammunition_add = 18
-			building_input_electronics_add = 5
-			building_input_telecommunications_add = 5
-			building_input_computers_add = 1
-			building_input_small_arms_add = 18
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = 7500
-			building_employment_officers_add = 2500
-			building_training_rate_add = 100
-		}
-		throughput_scaled = {
-			unit_offense_add = 92
-			unit_defense_add = 138
-		}
-		unscaled = {
-			unit_morale_loss_add = 9
-			unit_provinces_captured_mult = 0.25
-			unit_devastation_mult = 0.15
-			# should add Battle Condition chance
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 25
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_9th_generation_infantry_conscription = {
-	texture = "gfx/interface/icons/production_method_icons/military/9th_gen_infantry.dds"
-	unlocking_technologies = {
-		full_suit_body_armor		#temporary
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_ammunition_add = 20
-			building_input_electronics_add = 6
-			building_input_computers_add = 2
-			building_input_telecommunications_add = 5
-			building_input_small_arms_add = 20
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = 7500
-			building_employment_officers_add = 2500
-			building_training_rate_add = 100
-		}
-		throughput_scaled = {
-			unit_offense_add = 104
-			unit_defense_add = 157
-		}
-		unscaled = {
-			unit_morale_loss_add = 10
-			unit_provinces_captured_mult = 0.25
-			unit_devastation_mult = 0.15
-			# should add Battle Condition chance
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 30
+			country_army_power_projection_add = 2
 		}
 	}
 	timed_modifiers = {
@@ -731,23 +361,31 @@ pm_no_artillery = {
 	}
 }
 
-pm_pre_war_artillery = {
+pm_massed_fires = {
 	texture = "gfx/interface/icons/production_method_icons/military/pre_war_artillery.dds"
-	unlocking_technologies = {
-		heavy_artillery
+	unlocking_production_methods = {
+		pm_light_infantry
+		pm_motorized_infantry
+		pm_mechanized_infantry
+		pm_static_defenses
+		pm_defense_in_depth
 	}
 	building_modifiers = {
 		workforce_scaled = {
 			building_input_artillery_add = 2
-			building_input_ammunition_add = 4
+			building_input_ammunition_add = 5
 		}
-		throughput_scaled = {
-			unit_offense_add = 17
-			unit_defense_add = 23
+		level_scaled = {
+			building_employment_servicemembers_add = -100
+			building_employment_officers_add = 100
 		}
 		unscaled = {
+			unit_army_offense_mult = 0.05
+			unit_army_defense_mult = 0.25
 			unit_morale_damage_mult = 0.1
-			unit_kill_rate_add = 0.1
+			unit_kill_rate_add = 0.25
+			unit_devastation_mult = 1
+			unit_supply_consumption_mult = 1
 		}
 	}
 	country_modifiers = {
@@ -756,29 +394,304 @@ pm_pre_war_artillery = {
 		}
 	}
 	timed_modifiers = {
-		pm_offense_defense_readjustment
+		pm_offense_defense_readjustment_minor
 	}
 }
 
-pm_wartime_artillery = {
+pm_country_battery_fires = {
 	texture = "gfx/interface/icons/production_method_icons/military/wartime_artillery.dds"
-	unlocking_technologies = {
-		towed_artillery
+	unlocking_production_methods = {
+		pm_light_infantry
+		pm_motorized_infantry
+		pm_mechanized_infantry
+		pm_static_defenses
+		pm_defense_in_depth
 	}
 	building_modifiers = {
 		workforce_scaled = {
-			building_input_artillery_add = 4
-			building_input_ammunition_add = 5
-			building_input_automobiles_add = 2
+			building_input_artillery_add = 2
+			building_input_sensors_add = 1
+			building_input_ammunition_add = 2
 		}
-		throughput_scaled = {
-			unit_offense_add = 36
-			unit_defense_add = 48
+		level_scaled = {
+			building_employment_servicemembers_add = -100
+			building_employment_officers_add = 100
 		}
 		unscaled = {
-			unit_morale_damage_mult = 0.15
+			unit_army_defense_mult = 0.5
+			unit_morale_damage_mult = 0.1
+			unit_devastation_mult = 0.25
+			unit_supply_consumption_mult = 0.25
+		}
+	}
+	country_modifiers = {
+		workforce_scaled = {
+			country_army_power_projection_add = 1
+		}
+	}
+	timed_modifiers = {
+		pm_offense_defense_readjustment_minor
+	}
+}
+
+pm_motorized_guns = {
+	texture = "gfx/interface/icons/production_method_icons/military/post_war_artillery.dds"
+	unlocking_production_methods = {
+		pm_light_infantry
+		pm_motorized_infantry
+		pm_mechanized_infantry
+		pm_defense_in_depth
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_input_artillery_add = 2
+			building_input_automobiles_add = 1
+			building_input_ammunition_add = 2
+			building_input_refined_fuel_add = 1
+		}
+		level_scaled = {
+			building_employment_servicemembers_add = -100
+			building_employment_officers_add = 100
+		}
+		unscaled = {
+			unit_army_offense_mult = 0.15
+			unit_army_defense_mult = 0.15
+			unit_morale_damage_mult = 0.1
 			unit_kill_rate_add = 0.1
-			unit_provinces_captured_mult = 0.1
+			unit_devastation_mult = 0.25
+			unit_supply_consumption_mult = 0.5
+		}
+	}
+	country_modifiers = {
+		workforce_scaled = {
+			country_army_power_projection_add = 1
+		}
+	}
+	timed_modifiers = {
+		pm_offense_defense_readjustment_minor
+	}
+}
+
+pm_self_propelled_guns = {
+	texture = "gfx/interface/icons/production_method_icons/military/self_propelled_artillery.dds"
+	unlocking_production_methods = {
+		pm_light_infantry
+		pm_motorized_infantry
+		pm_mechanized_infantry
+		pm_defense_in_depth
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_input_artillery_add = 2
+			building_input_armored_fighting_vehicle_add = 1
+			building_input_ammunition_add = 2
+			building_input_refined_fuel_add = 1
+		}
+		level_scaled = {
+			building_employment_servicemembers_add = -100
+			building_employment_officers_add = 100
+		}
+		unscaled = {
+			unit_army_offense_mult = 0.25
+			unit_army_defense_mult = 0.05
+			unit_morale_damage_mult = 0.1
+			unit_kill_rate_add = 0.1
+			unit_devastation_mult = 0.25
+			unit_supply_consumption_mult = 0.5
+		}
+	}
+	country_modifiers = {
+		workforce_scaled = {
+			country_army_power_projection_add = 1
+		}
+	}
+	timed_modifiers = {
+		pm_offense_defense_readjustment_minor
+	}
+}
+
+pm_missile_artillery = {
+	texture = "gfx/interface/icons/production_method_icons/military/mlrs.dds"
+	unlocking_production_methods = {
+		pm_light_infantry
+		pm_motorized_infantry
+		pm_mechanized_infantry
+		pm_air_assault_infantry
+		pm_static_defenses
+		pm_defense_in_depth
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_input_artillery_add = 2
+			building_input_sensors_add = 1
+			building_input_missiles_add = 2
+			building_input_refined_fuel_add = 1
+		}
+		level_scaled = {
+			building_employment_servicemembers_add = -250
+			building_employment_officers_add = 250
+		}
+		unscaled = {
+			unit_army_offense_mult = 0.25
+			unit_army_defense_mult = 0.25
+			unit_morale_damage_mult = 0.1
+			unit_kill_rate_add = 0.2
+			unit_devastation_mult = 0.25
+			building_mobilization_cost_mult = 0.25
+			unit_supply_consumption_mult = 1
+		}
+	}
+	country_modifiers = {
+		workforce_scaled = {
+			country_army_power_projection_add = 2
+		}
+	}
+	timed_modifiers = {
+		pm_offense_defense_readjustment_minor
+	}
+}
+
+## Armored Integration
+pm_no_armor = {
+	texture = "gfx/interface/icons/production_method_icons/military/no_tanks.dds"
+	is_default = yes
+}
+
+pm_reconnaissance_vehicles = {
+	texture = "gfx/interface/icons/production_method_icons/military/wartime_tank.dds"
+	unlocking_production_methods = {
+		pm_light_infantry
+		pm_motorized_infantry
+		pm_mechanized_infantry
+		pm_air_assault_infantry
+		pm_static_defenses
+		pm_defense_in_depth
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_input_automobiles_add = 2
+			building_input_sensors_add = 1
+			building_input_refined_fuel_add = 1
+		}
+		level_scaled = {
+			building_employment_servicemembers_add = -500
+			building_employment_officers_add = 500
+		}
+		unscaled = {
+			unit_morale_loss_mult = -0.1
+			unit_advancement_speed_mult = 0.5
+			unit_provinces_captured_mult = 1
+		}
+	}
+	country_modifiers = {
+		workforce_scaled = {
+			country_army_power_projection_add = 1
+		}
+	}
+	timed_modifiers = {
+		pm_offense_defense_readjustment_minor
+	}
+}
+
+pm_assault_vehicles = {
+	texture = "gfx/interface/icons/production_method_icons/military/gen_1_MBT.dds"
+	unlocking_production_methods = {
+		pm_light_infantry
+		pm_motorized_infantry
+		pm_mechanized_infantry
+		pm_static_defenses
+		pm_defense_in_depth
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_input_armored_fighting_vehicle_add = 2
+			building_input_ammunition_add = 2
+			building_input_refined_fuel_add = 2
+		}
+		level_scaled = {
+			building_employment_servicemembers_add = -500
+			building_employment_officers_add = 500
+		}
+		unscaled = {
+			unit_offense_mult = 0.1
+			unit_kill_rate_add = 0.1
+			unit_supply_consumption_mult = 0.25
+			unit_provinces_captured_mult = 0.15
+		}
+	}
+	country_modifiers = {
+		workforce_scaled = {
+			country_army_power_projection_add = 2
+		}
+	}
+	timed_modifiers = {
+		pm_offense_defense_readjustment_minor
+	}
+}
+
+pm_armored_formations = {
+	texture = "gfx/interface/icons/production_method_icons/military/gen_2_MBT.dds"
+	unlocking_production_methods = {
+		pm_motorized_infantry
+		pm_mechanized_infantry
+		pm_static_defenses
+		pm_defense_in_depth
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_input_armored_fighting_vehicle_add = 5
+			building_input_ammunition_add = 4
+			building_input_refined_fuel_add = 3
+		}
+		level_scaled = {
+			building_employment_servicemembers_add = -1000
+			building_employment_officers_add = 1000
+		}
+		unscaled = {
+			unit_offense_mult = 0.05
+			unit_defense_mult = 0.15
+			unit_kill_rate_add = 0.05
+			unit_supply_consumption_mult = 0.5
+			unit_provinces_captured_mult = 0.25
+			unit_provinces_lost_mult = -0.25
+		}
+	}
+	country_modifiers = {
+		workforce_scaled = {
+			country_army_power_projection_add = 2
+		}
+	}
+	timed_modifiers = {
+		pm_offense_defense_readjustment_minor
+	}
+}
+
+pm_attack_helicopters = {
+	texture = "gfx/interface/icons/production_method_icons/military/gen_3_MBT.dds"
+	unlocking_technologies = {
+		pm_light_infantry
+		pm_motorized_infantry
+		pm_mechanized_infantry
+		pm_air_assault_infantry
+		pm_static_defenses
+		pm_defense_in_depth
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_input_military_aircraft_add = 2
+			building_input_missiles_add = 2
+			building_input_refined_fuel_add = 2
+		}
+		level_scaled = {
+			building_employment_servicemembers_add = -1500
+			building_employment_officers_add = 1500
+		}
+		unscaled = {
+			unit_offense_mult = 0.2
+			unit_kill_rate_add = 0.15
+			unit_supply_consumption_mult = 0.5
+			unit_provinces_captured_mult = 0.5
+			unit_advancement_speed_mult = 0.5
 		}
 	}
 	country_modifiers = {
@@ -787,924 +700,80 @@ pm_wartime_artillery = {
 		}
 	}
 	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_post_war_artillery = {
-	texture = "gfx/interface/icons/production_method_icons/military/post_war_artillery.dds"
-	unlocking_technologies = {
-		propellant_gasses
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_artillery_add = 6
-			building_input_ammunition_add = 7
-			building_input_automobiles_add = 2
-			building_input_sensors_add = 1
-		}
-		throughput_scaled = {
-			unit_offense_add = 37
-			unit_defense_add = 49
-		}
-		unscaled = {
-			unit_morale_damage_mult = 0.2
-			unit_kill_rate_add = 0.3
-			unit_devastation_mult = 0.25
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 5
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_self_propelled_artillery = {
-	texture = "gfx/interface/icons/production_method_icons/military/self_propelled_artillery.dds"
-	unlocking_technologies = {
-		fire_control_computers
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_artillery_add = 7
-			building_input_ammunition_add = 9
-			building_input_sensors_add = 2
-			building_input_armored_fighting_vehicle_add = 1
-		}
-		throughput_scaled = {
-			unit_offense_add = 57
-			unit_defense_add = 103
-		}
-		unscaled = {
-			unit_morale_damage_mult = 0.4
-			unit_kill_rate_add = 0.25
-			unit_devastation_mult = 0.5
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 7
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_mlrs_artillery = {
-	texture = "gfx/interface/icons/production_method_icons/military/mlrs.dds"
-	unlocking_technologies = {
-		rocket_propelled_artillery
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_artillery_add = 10
-			building_input_missiles_add = 2
-			building_input_sensors_add = 3
-			building_input_armored_fighting_vehicle_add = 2
-		}
-		throughput_scaled = {
-			unit_offense_add = 98
-			unit_defense_add = 131
-		}
-		unscaled = {
-			unit_morale_damage_mult = 0.4
-			unit_kill_rate_add = 0.25
-			unit_devastation_mult = 0.5
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 9
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_guided_missile_artillery = {
-	texture = "gfx/interface/icons/production_method_icons/military/self_guided_artillery.dds"
-	unlocking_technologies = {
-		guided_missile_artillery
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_artillery_add = 10
-			building_input_missiles_add = 4
-			building_input_sensors_add = 3
-			building_input_computers_add = 1
-			building_input_armored_fighting_vehicle_add = 2
-		}
-		throughput_scaled = {
-			unit_offense_add = 120
-			unit_defense_add = 160
-		}
-		unscaled = {
-			unit_morale_damage_mult = 0.6
-			unit_kill_rate_add = 0.25
-			unit_devastation_mult = 0.75
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 11
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-## Armored Integration
-pm_no_armoured_integration = {
-	texture = "gfx/interface/icons/production_method_icons/military/no_tanks.dds"
-	is_default = yes
-}
-
-pm_pre_war_tanks = {
-	texture = "gfx/interface/icons/production_method_icons/military/wartime_tank.dds"
-	unlocking_technologies = {
-		armored_warfare
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_tanks_add = 2
-			building_input_ammunition_add = 2
-			building_input_refined_fuel_add = 1
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = -100
-			building_employment_officers_add = 100
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_offense_add = 28
-			unit_defense_add = 18
-		}
-		unscaled = {
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 4
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_main_battle_tanks = {
-	texture = "gfx/interface/icons/production_method_icons/military/gen_1_MBT.dds"
-	unlocking_technologies = {
-		main_battle_tanks
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_tanks_add = 5
-			building_input_ammunition_add = 5
-			building_input_refined_fuel_add = 2
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = -100
-			building_employment_officers_add = 100
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_offense_add = 68
-			unit_defense_add = 45
-		}
-		unscaled = {
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 6
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_2nd_generation_tanks = {
-	texture = "gfx/interface/icons/production_method_icons/military/gen_2_MBT.dds"
-	unlocking_technologies = {
-		fin_stabilization
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_tanks_add = 7
-			building_input_ammunition_add = 7
-			building_input_refined_fuel_add = 2
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = -100
-			building_employment_officers_add = 100
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_offense_add = 123
-			unit_defense_add = 74
-		}
-		unscaled = {
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 8
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_3rd_generation_tanks = {
-	texture = "gfx/interface/icons/production_method_icons/military/gen_3_MBT.dds"
-	unlocking_technologies = {
-		turbine_engine
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_tanks_add = 10
-			building_input_ammunition_add = 10
-			building_input_refined_fuel_add = 3
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = -100
-			building_employment_officers_add = 100
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_offense_add = 174
-			unit_defense_add = 104
-		}
-		unscaled = {
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 10
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_modernized_3rd_generation_tanks = {
-	texture = "gfx/interface/icons/production_method_icons/military/gen_3.5_MBT.dds"
-	unlocking_technologies = {
-		active_protection_systems
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_tanks_add = 12
-			building_input_ammunition_add = 10
-			building_input_refined_fuel_add = 3
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = -100
-			building_employment_officers_add = 100
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_offense_add = 203
-			unit_defense_add = 122
-		}
-		unscaled = {
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 12
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_4th_generation_tanks = {
-	texture = "gfx/interface/icons/production_method_icons/military/gen_4_MBT.dds"
-	unlocking_technologies = {
-		networked_armored_units
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_tanks_add = 15
-			building_input_ammunition_add = 10
-			building_input_refined_fuel_add = 4
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = -100
-			building_employment_officers_add = 100
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_offense_add = 247
-			unit_defense_add = 148
-		}
-		unscaled = {
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 14
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
+		pm_offense_defense_readjustment_minor
 	}
 }
 
 ## Aircraft Integration
-pm_no_aircraft = {
+pm_no_air_support = {
 	texture = "gfx/interface/icons/production_method_icons/military/irregular_infantry.dds"
 	is_default = yes
 }
 
-pm_pre_war_military_aircraft = {
+pm_air_logistics = {
 	texture = "gfx/interface/icons/production_method_icons/military/irregular_infantry.dds"
-	unlocking_technologies = {
-		early_military_aviation
+	unlocking_production_methods = {
+		pm_light_infantry
+		pm_motorized_infantry
+		pm_mechanized_infantry
+		pm_air_assault_infantry
+		pm_static_defenses
+		pm_defense_in_depth
 	}
 	building_modifiers = {
 		workforce_scaled = {
 			building_input_military_aircraft_add = 2
-			building_input_ammunition_add = 1
-			building_input_refined_fuel_add = 1
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = -60
-			building_employment_officers_add = 60
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_offense_add = 18
-			unit_defense_add = 30
-		}
-		unscaled = {
-			unit_kill_rate_add = 0.15
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 5
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_post_war_fighters = {
-	texture = "gfx/interface/icons/production_method_icons/military/irregular_infantry.dds"
-	unlocking_technologies = {
-		wartime_aviation
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_military_aircraft_add = 4
-			building_input_ammunition_add = 2
-			building_input_refined_fuel_add = 1
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = -60
-			building_employment_officers_add = 60
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_offense_add = 35
-			unit_defense_add = 58
-		}
-		unscaled = {
-			unit_kill_rate_add = 0.2
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 10
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_jet_fighters = {
-	texture = "gfx/interface/icons/production_method_icons/military/irregular_infantry.dds"
-	unlocking_technologies = {
-		early_military_jets
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_military_aircraft_add = 6
-			building_input_ammunition_add = 2
 			building_input_refined_fuel_add = 2
 		}
 		level_scaled = {
-			building_employment_servicemembers_add = -60
-			building_employment_officers_add = 60
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_offense_add = 51
-			unit_defense_add = 85
+			building_employment_servicemembers_add = -500
+			building_employment_officers_add = 500
 		}
 		unscaled = {
-			unit_kill_rate_add = 0.25
+			unit_morale_loss_mult = -0.25
+			unit_provinces_captured_mult = 0.5
+			unit_advancement_speed_mult = 0.5
+			unit_supply_consumption_mult = -1
 		}
 	}
 	country_modifiers = {
 		workforce_scaled = {
-			country_army_power_projection_add = 15
+			country_army_power_projection_add = 1
 		}
 	}
 	timed_modifiers = {
-		pm_offense_defense_readjustment
+		pm_offense_defense_readjustment_minor
 	}
 }
 
-pm_supersonic_jet_fighters = {
+pm_close_air_support = {
 	texture = "gfx/interface/icons/production_method_icons/military/irregular_infantry.dds"
-	unlocking_technologies = {
-		transonic_jets
+	unlocking_production_methods = {
+		pm_light_infantry
+		pm_motorized_infantry
+		pm_mechanized_infantry
+		pm_air_assault_infantry
+		pm_static_defenses
+		pm_defense_in_depth
 	}
 	building_modifiers = {
 		workforce_scaled = {
-			building_input_military_aircraft_add = 8
-			building_input_ammunition_add = 2
-			building_input_refined_fuel_add = 2
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = -60
-			building_employment_officers_add = 60
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_offense_add = 65
-			unit_defense_add = 109
-		}
-		unscaled = {
-			unit_kill_rate_add = 0.3
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 20
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_3rd_generation_jet_fighters = {
-	texture = "gfx/interface/icons/production_method_icons/military/irregular_infantry.dds"
-	unlocking_technologies = {
-		supersonic_jets
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_military_aircraft_add = 10
-			building_input_ammunition_add = 2
-			building_input_refined_fuel_add = 4
-			building_input_missiles_add = 1
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = -60
-			building_employment_officers_add = 60
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_offense_add = 91
-			unit_defense_add = 152
-		}
-		unscaled = {
-			unit_kill_rate_add = 0.35
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 25
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_4th_generation_jet_fighters = {
-	texture = "gfx/interface/icons/production_method_icons/military/irregular_infantry.dds"
-	unlocking_technologies = {
-		multi_role_aircraft
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_military_aircraft_add = 12
-			building_input_ammunition_add = 1
-			building_input_refined_fuel_add = 5
 			building_input_missiles_add = 2
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = -60
-			building_employment_officers_add = 60
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_offense_add = 112
-			unit_defense_add = 188
-		}
-		unscaled = {
-			unit_kill_rate_add = 0.4
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 30
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_45th_generation_jet_fighters = {
-	texture = "gfx/interface/icons/production_method_icons/military/irregular_infantry.dds"
-	unlocking_technologies = {
-		variable_sweep_wing
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_military_aircraft_add = 14
-			building_input_ammunition_add = 1
-			building_input_missiles_add = 3
-			building_input_refined_fuel_add = 5
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = -60
-			building_employment_officers_add = 60
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_offense_add = 134
-			unit_defense_add = 224
-		}
-		unscaled = {
-			unit_kill_rate_add = 0.45
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 35
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_5th_generation_jet_fighters = {
-	texture = "gfx/interface/icons/production_method_icons/military/irregular_infantry.dds"
-	unlocking_technologies = {
-		supercruise
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_military_aircraft_add = 15
-			building_input_missiles_add = 4
-			building_input_refined_fuel_add = 6
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = -60
-			building_employment_officers_add = 60
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_offense_add = 156
-			unit_defense_add = 260
-		}
-		unscaled = {
-			unit_kill_rate_add = 0.5
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 40
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_6th_generation_jet_fighters = {
-	texture = "gfx/interface/icons/production_method_icons/military/irregular_infantry.dds"
-	unlocking_technologies = {
-		all_aspects_stealth
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_military_aircraft_add = 18
-			building_input_missiles_add = 6
-			building_input_refined_fuel_add = 6
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = -60
-			building_employment_officers_add = 60
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_offense_add = 184
-			unit_defense_add = 308
-		}
-		unscaled = {
-			unit_kill_rate_add = 0.55
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 45
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_7th_generation_jet_fighters = {
-	texture = "gfx/interface/icons/production_method_icons/military/irregular_infantry.dds"
-	unlocking_technologies = {
-		ai_reactive_systems
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_military_aircraft_add = 20
-			building_input_missiles_add = 8
-			building_input_refined_fuel_add = 8
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = -60
-			building_employment_officers_add = 60
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_offense_add = 217
-			unit_defense_add = 362
-		}
-		unscaled = {
-			unit_kill_rate_add = 0.6
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 50
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-#### Motorization
-pm_no_motorized = {
-	texture = "gfx/interface/icons/production_method_icons/military/no_motorization.dds"
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_motorized = {
-	texture = "gfx/interface/icons/production_method_icons/military/motorized.dds"
-	unlocking_technologies = {
-		motorization
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_automobiles_add = 4
-			building_input_refined_fuel_add = 1
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = -100
-			building_employment_officers_add = 100
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_provinces_captured_mult = 0.05
-			unit_offense_add = 13
-			unit_defense_add = 13
-		}
-		unscaled = {
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 2
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_armoured_personnel_carriers = {
-	texture = "gfx/interface/icons/production_method_icons/military/armored_personnel_carriers.dds"
-	unlocking_technologies = {
-		armored_personnel_carriers
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_armored_fighting_vehicle_add = 3
+			building_input_military_aircraft_add = 2
 			building_input_refined_fuel_add = 2
 		}
 		level_scaled = {
-			building_employment_servicemembers_add = -100
-			building_employment_officers_add = 100
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_provinces_captured_mult = 0.1
-			unit_offense_add = 18
-			unit_defense_add = 18
+			building_employment_servicemembers_add = -1000
+			building_employment_officers_add = 1000
 		}
 		unscaled = {
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 2
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_infantry_fighting_vehicles_carriers = {
-	texture = "gfx/interface/icons/production_method_icons/military/infantry_fighting_vehicles.dds"
-	unlocking_technologies = {
-		infantry_fighting_vehicles
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_armored_fighting_vehicle_add = 5
-			building_input_refined_fuel_add = 2
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = -100
-			building_employment_officers_add = 100
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_provinces_captured_mult = 0.15
-			unit_offense_add = 28
-			unit_defense_add = 28
-		}
-		unscaled = {
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 2
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_multi_role_armored_fighting_vehicles = {
-	texture = "gfx/interface/icons/production_method_icons/military/multi_role_afv.dds"
-	unlocking_technologies = {
-		mine_protected_vehicles
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_armored_fighting_vehicle_add = 8
-			building_input_refined_fuel_add = 3
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = -100
-			building_employment_officers_add = 100
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_provinces_captured_mult = 0.2
-			unit_offense_add = 45
-			unit_defense_add = 45
-		}
-		unscaled = {
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 2
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-## reconnaissance pmg
-pm_no_special_reconnaissance = {
-	texture = "gfx/interface/icons/production_method_icons/military/no_recon.dds"
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_infantry_reconnaissance = {
-	texture = "gfx/interface/icons/production_method_icons/military/infantry_recon.dds"
-	unlocking_technologies = {
-		recon_in_force
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_electronics_add = 1
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = -100
-			building_employment_officers_add = 100
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_morale_damage_mult = 0.05
-		}
-		unscaled = {
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 2
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment_minor
-	}
-}
-
-pm_motorized_reconnaissance = {
-	texture = "gfx/interface/icons/production_method_icons/military/motorized_recon.dds"
-	unlocking_technologies = {
-		light_utility_vehicles
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_telecommunications_add = 1
-			building_input_ammunition_add = 2
-			building_input_automobiles_add = 4
-			building_input_electronics_add = 1
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = -100
-			building_employment_officers_add = 100
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_morale_damage_mult = 0.08
-		}
-		unscaled = {
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-			country_army_power_projection_add = 2
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment_minor
-	}
-}
-
-pm_armoured_reconnaissance = {
-	texture = "gfx/interface/icons/production_method_icons/military/armored_recon.dds"
-	unlocking_technologies = {
-		armored_reconnaissance_vehicles
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_telecommunications_add = 2
-			building_input_ammunition_add = 2
-			building_input_armored_fighting_vehicle_add = 3
-			building_input_sensors_add = 1
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = -100
-			building_employment_officers_add = 100
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
+			unit_army_offense_mult = 0.15
+			unit_army_defense_mult = 0.05
 			unit_morale_damage_mult = 0.1
-		}
-		unscaled = {
+			unit_kill_rate_add = 0.1
+			unit_devastation_mult = 0.25
+			building_mobilization_cost_mult = 0.25
+			unit_supply_consumption_mult = 1
 		}
 	}
 	country_modifiers = {
@@ -1717,27 +786,34 @@ pm_armoured_reconnaissance = {
 	}
 }
 
-pm_helicopter_reconnaissance = {
-	texture = "gfx/interface/icons/production_method_icons/military/helicopter_recon.dds"
-	unlocking_technologies = {
-		reconnaissance_helicopters
+pm_strategic_bombing = {
+	texture = "gfx/interface/icons/production_method_icons/military/irregular_infantry.dds"
+	unlocking_production_methods = {
+		pm_light_infantry
+		pm_motorized_infantry
+		pm_mechanized_infantry
+		pm_air_assault_infantry
+		pm_static_defenses
+		pm_defense_in_depth
 	}
 	building_modifiers = {
 		workforce_scaled = {
-			building_input_telecommunications_add = 2
-			building_input_ammunition_add = 2
-			building_input_military_aircraft_add = 5
-			building_input_sensors_add = 2
+			building_input_ammunition_add = 4
+			building_input_military_aircraft_add = 2
+			building_input_refined_fuel_add = 2
 		}
 		level_scaled = {
-			building_employment_servicemembers_add = -100
-			building_employment_officers_add = 100
-			building_training_rate_add = 5
+			building_employment_servicemembers_add = -1000
+			building_employment_officers_add = 1000
 		}
-		throughput_scaled = {
+		unscaled = {
+			unit_army_offense_mult = 0.25
+			unit_army_defense_mult = 0.05
 			unit_morale_damage_mult = 0.15
-		}
-		unscaled = {
+			unit_kill_rate_add = 0.25
+			unit_devastation_mult = 2
+			building_mobilization_cost_mult = 0.25
+			unit_supply_consumption_mult = 1
 		}
 	}
 	country_modifiers = {
@@ -1750,33 +826,114 @@ pm_helicopter_reconnaissance = {
 	}
 }
 
-pm_drone_reconnaissance = {
-	texture = "gfx/interface/icons/production_method_icons/military/drone_recon.dds"
-	unlocking_technologies = {
-		unmanned_aerial_vehicles
+pm_air_superiority = {
+	texture = "gfx/interface/icons/production_method_icons/military/irregular_infantry.dds"
+	unlocking_production_methods = {
+		pm_light_infantry
+		pm_motorized_infantry
+		pm_mechanized_infantry
+		pm_air_assault_infantry
+		pm_static_defenses
+		pm_defense_in_depth
 	}
 	building_modifiers = {
 		workforce_scaled = {
-			building_input_telecommunications_add = 2
-			building_input_ammunition_add = 2
-			building_input_military_aircraft_add = 10
-			building_input_computers_add = 1
-			building_input_sensors_add = 3
+			building_input_sensors_add = 1
+			building_input_missiles_add = 1
+			building_input_military_aircraft_add = 2
+			building_input_refined_fuel_add = 2
 		}
 		level_scaled = {
-			building_employment_servicemembers_add = -100
-			building_employment_officers_add = 100
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_morale_damage_mult = 0.2
+			building_employment_servicemembers_add = -1000
+			building_employment_officers_add = 1000
 		}
 		unscaled = {
+			unit_army_offense_mult = 0.05
+			unit_army_defense_mult = 0.25
+			unit_supply_consumption_mult = 1
 		}
 	}
 	country_modifiers = {
 		workforce_scaled = {
 			country_army_power_projection_add = 2
+		}
+	}
+	timed_modifiers = {
+		pm_offense_defense_readjustment_minor
+	}
+}
+
+pm_air_reconnaissance = {
+	texture = "gfx/interface/icons/production_method_icons/military/irregular_infantry.dds"
+	unlocking_production_methods = {
+		pm_light_infantry
+		pm_motorized_infantry
+		pm_mechanized_infantry
+		pm_air_assault_infantry
+		pm_static_defenses
+		pm_defense_in_depth
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_input_sensors_add = 1
+			building_input_military_aircraft_add = 2
+			building_input_refined_fuel_add = 2
+		}
+		level_scaled = {
+			building_employment_servicemembers_add = -1000
+			building_employment_officers_add = 1000
+		}
+		unscaled = {
+			unit_morale_loss_mult = -0.1
+			unit_offense_mult = 0.1
+			unit_advancement_speed_mult = 0.5
+			unit_provinces_captured_mult = 1
+		}
+	}
+	country_modifiers = {
+		workforce_scaled = {
+			country_army_power_projection_add = 2
+		}
+	}
+	timed_modifiers = {
+		pm_offense_defense_readjustment_minor
+	}
+}
+
+pm_penetrating_strikes = {
+	texture = "gfx/interface/icons/production_method_icons/military/irregular_infantry.dds"
+	unlocking_production_methods = {
+		pm_light_infantry
+		pm_motorized_infantry
+		pm_mechanized_infantry
+		pm_air_assault_infantry
+		pm_static_defenses
+		pm_defense_in_depth
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			building_input_sensors_add = 2
+			building_input_missiles_add = 4
+			building_input_military_aircraft_add = 2
+			building_input_refined_fuel_add = 2
+		}
+		level_scaled = {
+			building_employment_servicemembers_add = -2000
+			building_employment_officers_add = 2000
+		}
+		unscaled = {
+			unit_army_offense_mult = 0.25
+			unit_army_defense_mult = 0.25
+			unit_morale_damage_mult = 0.15
+			unit_kill_rate_add = 0.15
+			unit_devastation_mult = 0.25
+			building_mobilization_cost_mult = 0.35
+			unit_supply_consumption_mult = 1
+		}
+	}
+	country_modifiers = {
+		workforce_scaled = {
+			country_army_power_projection_add = 3
 		}
 	}
 	timed_modifiers = {
@@ -1785,293 +942,87 @@ pm_drone_reconnaissance = {
 }
 
 ## medical support
-pm_no_formal_medical_support = {
-	texture = "gfx/interface/icons/production_method_icons/military/no_artillery.dds"
-	timed_modifiers = {
-		pm_offense_defense_readjustment_minor
+pm_no_field_care = {
+	texture = "gfx/interface/icons/production_method_icons/wound_dressing.dds"
+	building_modifiers = {
+		unscaled = {
+			unit_recovery_rate_add = 0.15
+		}
 	}
 }
 
-pm_combat_medics = {
-	texture = "gfx/interface/icons/production_method_icons/military/pre_war_tanks.dds"
-	unlocking_technologies = {
-		combat_medics
-	}
+pm_first_aid = {
+	texture = "gfx/interface/icons/production_method_icons/first_aid.dds"
 	building_modifiers = {
 		workforce_scaled = {
-			building_input_fabric_add = 10
+			building_input_pharmaceuticals_add = 2
 		}
 		level_scaled = {
-			building_employment_servicemembers_add = -100
-			building_employment_officers_add = 100
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_morale_loss_mult = -0.05
+			building_employment_servicemembers_add = -250
+			building_employment_officers_add = 250
 		}
 		unscaled = {
+			building_mobilization_cost_mult = 0.05
+			unit_morale_loss_mult = -0.15
+			unit_recovery_rate_add = 0.25
 		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment_minor
 	}
 }
 
-pm_army_field_hospitals = {
-	texture = "gfx/interface/icons/production_method_icons/military/pre_war_tanks.dds"
-	unlocking_technologies = {
-		field_hospitals
-	}
+pm_field_hospitals = {
+	texture = "gfx/interface/icons/production_method_icons/field_hospitals.dds"
 	building_modifiers = {
 		workforce_scaled = {
-			building_input_fabric_add = 20
-			building_input_pharmaceuticals_add = 10
+			building_input_pharmaceuticals_add = 3
+			building_input_automobiles_add = 1
 		}
 		level_scaled = {
-			building_employment_servicemembers_add = -100
-			building_employment_officers_add = 100
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_morale_loss_mult = -0.08
+			building_employment_servicemembers_add = -500
+			building_employment_officers_add = 500
 		}
 		unscaled = {
+			building_mobilization_cost_mult = 0.1
+			unit_morale_loss_mult = -0.25
+			unit_recovery_rate_add = 0.45
 		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment_minor
 	}
 }
 
-pm_medical_logistics = {
-	texture = "gfx/interface/icons/production_method_icons/military/pre_war_tanks.dds"
-	unlocking_technologies = {
-		military_medical_logistics
-	}
+pm_casualty_evacuation = {
+	texture = "gfx/interface/icons/production_method_icons/field_hospitals.dds"
 	building_modifiers = {
 		workforce_scaled = {
-			building_input_fabric_add = 25
-			building_input_automobiles_add = 10
-			building_input_pharmaceuticals_add = 15
+			building_input_pharmaceuticals_add = 3
+			building_input_military_aircraft_add = 1
 		}
 		level_scaled = {
-			building_employment_servicemembers_add = -100
-			building_employment_officers_add = 100
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_morale_loss_mult = -0.12
+			building_employment_servicemembers_add = -750
+			building_employment_officers_add = 750
 		}
 		unscaled = {
+			building_mobilization_cost_mult = 0.15
+			unit_morale_loss_mult = -0.35
+			unit_recovery_rate_add = 0.65
 		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment_minor
 	}
 }
 
-pm_medevac = {
-	texture = "gfx/interface/icons/production_method_icons/military/pre_war_tanks.dds"
-	unlocking_technologies = {
-		medevac
-	}
+pm_theater_hospitals = {
+	texture = "gfx/interface/icons/production_method_icons/field_hospitals.dds"
 	building_modifiers = {
 		workforce_scaled = {
-			building_input_fabric_add = 25
-			building_input_armored_fighting_vehicle_add = 5
-			building_input_military_aircraft_add = 8
-			building_input_pharmaceuticals_add = 20
+			building_input_pharmaceuticals_add = 3
+			building_input_military_aircraft_add = 2
 		}
 		level_scaled = {
-			building_employment_servicemembers_add = -100
-			building_employment_officers_add = 100
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_morale_loss_mult = -0.18
+			building_employment_servicemembers_add = -1000
+			building_employment_officers_add = 1000
 		}
 		unscaled = {
+			building_mobilization_cost_mult = 0.2
+			unit_morale_loss_mult = -0.45
+			unit_recovery_rate_add = 0.75
 		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment_minor
-	}
-}
-
-## Military Communications
-pm_no_communications_support = {
-	texture = "gfx/interface/icons/production_method_icons/military/no_comms.dds"
-	timed_modifiers = {
-		pm_offense_defense_readjustment
-	}
-}
-
-pm_radio_posts = {
-	texture = "gfx/interface/icons/production_method_icons/military/radio_posts.dds"
-	unlocking_technologies = {
-		military_radio
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_telecommunications_add = 4
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = -100
-			building_employment_officers_add = 100
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_morale_recovery_mult = 0.05
-		}
-		unscaled = {
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment_minor
-	}
-}
-
-pm_radio_backpacks = {
-	texture = "gfx/interface/icons/production_method_icons/military/radio_backpacks.dds"
-	unlocking_technologies = {
-		compact_radio
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_telecommunications_add = 6
-			building_input_electronics_add = 2
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = -100
-			building_employment_officers_add = 100
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_morale_recovery_mult = 0.08
-		}
-		unscaled = {
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment_minor
-	}
-}
-
-pm_long_range_portable_radios = {
-	texture = "gfx/interface/icons/production_method_icons/military/long_range_radios.dds"
-	unlocking_technologies = {
-		battery_powered_radios
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_telecommunications_add = 6
-			building_input_electronics_add = 4
-			building_input_batteries_add = 2
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = -100
-			building_employment_officers_add = 100
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_morale_recovery_mult = 0.12
-		}
-		unscaled = {
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment_minor
-	}
-}
-
-pm_satellite_communications = {
-	texture = "gfx/interface/icons/production_method_icons/military/satellite_comms.dds"
-	unlocking_technologies = {
-		satellite_communications
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_telecommunications_add = 9
-			building_input_electronics_add = 10
-			building_input_batteries_add = 8
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = -100
-			building_employment_officers_add = 100
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_morale_recovery_mult = 0.15
-		}
-		unscaled = {
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment_minor
-	}
-}
-
-pm_computerized_communications = {
-	texture = "gfx/interface/icons/production_method_icons/military/computerized_comms.dds"
-	unlocking_technologies = {
-		near_instant_communication
-	}
-	building_modifiers = {
-		workforce_scaled = {
-			building_input_electronics_add = 6
-			building_input_batteries_add = 4
-			building_input_telecommunications_add = 16
-			building_input_computers_add = 2
-		}
-		level_scaled = {
-			building_employment_servicemembers_add = -100
-			building_employment_officers_add = 100
-			building_training_rate_add = 5
-		}
-		throughput_scaled = {
-			unit_morale_recovery_mult = 0.2
-		}
-		unscaled = {
-		}
-	}
-	country_modifiers = {
-		workforce_scaled = {
-		}
-	}
-	timed_modifiers = {
-		pm_offense_defense_readjustment_minor
 	}
 }
 
